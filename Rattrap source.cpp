@@ -5,6 +5,7 @@
 #include<graphics.h>
 #include<stdlib.h>
 int cx,cy,q;
+
 class mouse
 {
        REGS    regs;
@@ -29,7 +30,7 @@ void mouse::hide_mouse()
 {
        regs.x.ax=0x02;
        int86(0x33,&regs,&regs);
-}
+} 
 void mouse::get_status()
 {
        regs.x.ax=0x03;
@@ -1125,7 +1126,7 @@ void  w5()
 
 		       }
 		       cout<<count<<"\b";
-			score+=10;
+			score=score+10;
 		}
 	     }
 
@@ -1142,14 +1143,12 @@ void main()
 {
 		int gd=9,gm=2;
 	initgraph(&gd,&gm,"c:\\tc\\bgi");
-       //	w1l1();
+   
     //	delay(500);
 	//w3l3();
       //	delay(500);
 	w3l2();
        //	delay(500);
-       //	w4();
-//	w5();
 	getch();
 	closegraph();
 }
